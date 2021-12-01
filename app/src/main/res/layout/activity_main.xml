@@ -7,15 +7,71 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/resultado"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp" />
+        android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/paises"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        <EditText
+            android:id="@+id/N"
+            android:layout_width="152dp"
+            android:layout_height="49dp"
+            android:ems="10"
+            android:maxLength="5"
+            android:singleLine="true"
+            android:hint="Valor n"
+            android:imeOptions= "actionNext"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.195"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.295" />
 
+        <EditText
+            android:id="@+id/X"
+            android:layout_width="125dp"
+            android:layout_height="44dp"
+            android:ems="10"
+            android:maxLength="5"
+            android:singleLine="true"
+            android:hint="Valor x"
+            android:imeOptions= "actionDone"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.361"
+            app:layout_constraintStart_toEndOf="@+id/N"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.299" />
 
+        <TextView
+            android:id="@+id/Resu"
+            android:layout_width="124dp"
+            android:layout_height="39dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.666" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="123dp"
+            android:layout_height="32dp"
+            android:text="Resultado"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.563" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
