@@ -60,7 +60,37 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public  void calcular_resu(){
+    public int calcular_resu(int n, int x){
+
+        int resu = 0; 
+
+        if(n == 1 && x == 1){
+            resu = 1;
+        }else{
+
+            int i = 1;
+
+            while( i <= n ){
+                resu += Math.pow(x, i)/factorial(i);
+                i++;
+            }
+
+            resu += 1;
+
+        }
+
+    }
+
+    public int factorial(int num){
+
+        fact = 1;
+
+        while(num != 0){
+            fact *= num;
+            num--;
+        }
+
+        return fact;
 
     }
 
