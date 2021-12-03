@@ -44,15 +44,25 @@ public class MainActivity extends AppCompatActivity {
 
                if (i == EditorInfo.IME_ACTION_DONE){
 
-                   a = Integer.parseInt(valorx.getText().toString()) + Integer.parseInt(valorn.getText().toString());
+                   if(valorn.getText().toString().isEmpty() || valorx.getText().toString().isEmpty()){
 
-                   resu.setText(String.valueOf(a));
+                       Toast.makeText(MainActivity.this, "Llene todos los campos", Toast.LENGTH_LONG).show();
 
-                   //ocultar teclado virtual
-                   InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                   imm.hideSoftInputFromWindow(valorn.getWindowToken(), 0);
+                   }else{
 
-                   pro = true;
+                       //a = Integer.parseInt(valorx.getText().toString()) + Integer.parseInt(valorn.getText().toString());
+
+                       resu.setText(String.valueOf(calcular_resu(Integer.parseInt(valorn.getText().toString()), Integer.parseInt(valorx.getText().toString()))));
+
+                       //ocultar teclado virtual
+                       InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                       imm.hideSoftInputFromWindow(valorn.getWindowToken(), 0);
+
+                       pro = true;
+
+                   }
+
+
                }
                return pro;
            }
@@ -60,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public int calcular_resu(int n, int x){
+    public double calcular_resu(int n, int x){
 
-        int resu = 0; 
+        double resu = 0;
 
         if(n == 1 && x == 1){
             resu = 1;
@@ -70,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
             int i = 1;
 
-            while( i <= n ){
+            while( i <= n-1 ){
                 resu += Math.pow(x, i)/factorial(i);
+                //System.out.println("potencia: "+Math.pow(x, i));
+                //System.out.println("factorial: "+factorial(i));
                 i++;
             }
 
@@ -79,11 +91,13 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        return resu;
+
     }
 
     public int factorial(int num){
 
-        fact = 1;
+        int fact = 1;
 
         while(num != 0){
             fact *= num;
